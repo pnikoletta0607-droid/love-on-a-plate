@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>С любовью на тарелке ♡</title>
+<style>
+:root{--pink:#f8e5e9;--rose:#a66e7d;--ink:#674a54}
+*{box-sizing:border-box}
+body{margin:0;background:#fffafb;color:var(--ink);font-family:Arial,sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-family:Georgia,serif;font-size:24px}
+nav a{color:var(--ink);text-decoration:none;margin-left:18px}
+.hero{background:var(--pink);text-align:center;padding:85px 20px}
+.hero h1{font:normal clamp(36px,6vw,65px) Georgia,serif;margin:18px 0}
+.hero p{font-size:18px}
+.btn{display:inline-block;background:var(--rose);color:white;text-decoration:none;padding:14px 28px;border-radius:30px;margin-top:20px}
+section{max-width:1100px;margin:auto;padding:60px 24px}
+h2{font:normal 34px Georgia,serif;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:30px}
+.card{background:white;border:1px solid #f0dce1;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px #a66e7d12}
+.photo{height:190px;background:#f5dce3;display:grid;place-items:center;font-size:48px}
+.card-content{padding:22px}
+.card h3{font-family:Georgia,serif;font-size:23px}
+.card p{line-height:1.6}
+.card a{color:var(--rose)}
+.week{background:#fff0f3;border-radius:20px;text-align:center;padding:35px}
+footer{text-align:center;padding:30px;background:var(--pink)}
+@media(max-width:600px){header{justify-content:center;text-align:center}nav a{margin:0 8px}.hero{padding:65px 18px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">С любовью на тарелке ♡</div>
+<nav><a href="#recipes">Рецепты</a><a href="#menu">Меню на неделю</a></nav>
+</header>
+<div class="hero">
+<p>НАША МАЛЕНЬКАЯ КУХНЯ</p>
+<h1>С любовью на тарелке ♡</h1>
+<p>Каждое блюдо — маленькое признание в любви</p>
+<a class="btn" href="#recipes">Смотреть рецепты</a>
+</div>
+<section id="recipes">
+<h2>Любимые рецепты ♡</h2>
+<div class="grid">
+<article class="card">
+<div class="photo">🍝</div>
+<div class="card-content">
+<h3>Паста с куриными тефтелями</h3>
+<p>Нежная паста с сочными куриными тефтелями в сливочном соусе.</p>
+<a href="#menu">Планируем меню ♡</a>
+</div>
+</article>
+<article class="card">
+<div class="photo">📷</div>
+<div class="card-content">
+<h3>Здесь будет твой рецепт</h3>
+<p>Скоро добавим новые блюда и твои собственные фотографии.</p>
+</div>
+</article>
+</div>
+</section>
+<section id="menu">
+<div class="week">
+<h2>Меню на неделю ♡</h2>
+<p>Планируй любимые блюда и создавай уютные домашние традиции.</p>
+<p>Скоро здесь появится интерактивное меню.</p>
+</div>
+</section>
+<footer>Сделано с любовью ♡</footer>
+</body>
+</html>
