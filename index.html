@@ -261,12 +261,13 @@ footer {
     <h2>Любимые рецепты ♡</h2>
     <div class="grid">
 
-      <article class="card">
-        <div class="card-image" aria-label="Яблочный пирог">🥧</div>
+      
+<article class="card" data-categories="Курица,Паста">        
+        <div class="card-image" aria-label="Паста с куриными тефтелями">🍝</div>
         <div class="card-content">
-          <h3>Яблочный пирог</h3>
-          <p>Нежный пирог с ароматной корицей и домашним уютом.</p>
-        <div class="meta">Выпечка · 1 ч 10 мин</div>
+        <h3>Паста с куриными тефтелями</h3>
+         <p>Нежная паста с сочными куриными тефтелями в сливочном соусе.</p>        
+         <div class="meta">Курица · Паста</div>
           <a class="button" href="recipe.html">Открыть рецепт ♡</a>
         </div>
       </article>
@@ -314,6 +315,34 @@ footer {
 <footer>
   С любовью на тарелке ♡
 </footer>
+
+<script>
+  const categoryButtons = document.querySelectorAll(".category");
+  const recipeCards = document.querySelectorAll("#recipes .card");
+
+  categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.category;
+
+      categoryButtons.forEach(item => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      recipeCards.forEach(card => {
+        const categories = (card.dataset.categories || "")
+          .split(",")
+          .map(item => item.trim());
+
+        card.style.display =
+          selected === "Все" || categories.includes(selected)
+            ? ""
+            : "none";
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
