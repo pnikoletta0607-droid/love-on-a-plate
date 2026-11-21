@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Куриные рулетики в беконе ♡ — С любовью на тарелке</title>
+<style>
+:root{--pink:#f7e6eb;--rose:#ad7588;--ink:#654b55;--cream:#fffbfc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;line-height:1.7}
+header{background:#fff8fa;padding:22px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid #f1dce3}
+.logo{font:28px Georgia,serif;color:var(--ink);text-decoration:none}
+nav a{color:var(--ink);text-decoration:none;margin-left:20px}
+main{max-width:1100px;margin:auto;padding:48px 24px}
+.back{color:var(--rose);text-decoration:none}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;margin:36px 0 50px}
+.photo{min-height:390px;background:linear-gradient(140deg,#f8dce5,#fff4e6);border-radius:26px;display:flex;align-items:center;justify-content:center;font-size:110px}
+  .photo {
+  overflow: hidden;
+  padding: 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  border-radius: 26px;
+}
+.eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--rose)}
+h1,h2{font-family:Georgia,serif;font-weight:normal;line-height:1.2}
+h1{font-size:clamp(38px,5vw,65px);margin:15px 0}
+h2{font-size:34px;margin-top:0}
+.subtitle{font-size:17px}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.meta span{background:var(--pink);border-radius:30px;padding:8px 16px;font-size:14px}
+button{border:0;cursor:pointer;font:inherit}
+.favorite{background:var(--rose);color:white;padding:13px 25px;border-radius:30px}
+.favorite.active{background:#855266}
+.content{display:grid;grid-template-columns:0.9fr 1.1fr;gap:28px;align-items:start}
+.panel{background:white;border:1px solid #f1dfe5;border-radius:24px;padding:32px;box-shadow:0 8px 30px #a56e7b0c}
+ul{list-style:none;padding:0;margin:0}
+li{padding:10px 0;border-bottom:1px solid #f5e8ec}
+label{display:flex;gap:12px;align-items:center;cursor:pointer}
+input[type=checkbox]{accent-color:var(--rose);width:19px;height:19px}
+li:has(input:checked) label span{text-decoration:line-through;opacity:.5}
+.tip{background:#fbedf1;border-radius:18px;padding:20px;margin-top:25px}
+.step{display:flex;gap:20px;margin:25px 0}
+.number{flex:none;width:42px;height:42px;background:var(--pink);color:var(--rose);border-radius:50%;display:grid;place-items:center;font-family:Georgia,serif;font-size:21px}
+.step h3{margin:0 0 5px;font-size:18px}
+.step p{margin:0}
+footer{text-align:center;padding:45px 20px;background:#fff5f8;margin-top:60px}
+@media(max-width:760px){header{justify-content:center;text-align:center}.logo{font-size:24px}nav a{margin:0 10px}.hero,.content{grid-template-columns:1fr}.hero{gap:22px}.photo{min-height:270px;font-size:85px}main{padding:26px 17px}.panel{padding:23px}h2{font-size:29px}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">С любовью на тарелке ♡</a>
+<nav><a href="index.html#recipes">Рецепты</a><a href="index.html#menu">Меню на неделю</a></nav>
+</header>
+<main>
+<a class="back" href="index.html">← Вернуться на главную</a>
+<section class="hero">
+<div class="photo">
+  <img src="2D9CCE57-52DC-49E5-B4D2-BA2F978FF49E.png" alt="Куриные рулетики в беконе">
+</div>
+<div>
+<div class="eyebrow">Наша маленькая кухня</div>
+<h1>Куриные рулетики в беконе</h1>
+<p class="subtitle">Нежная домашняя лазанья с сочной мясной начинкой, сливочным соусом бешамель и аппетитной сырной корочкой — настоящее уютное блюдо, приготовленное с любовью.</p>
+<div class="meta"><span>♡ Мясо</span><span>♡ Паста</span></div>
+<button class="favorite" id="favorite" type="button" aria-pressed="false">♡ В избранное</button>
+</div>
+</section>
+<div class="content">
+<section class="panel">
+<h2>Ингредиенты ♡</h2>
+<p>Всё, что понадобится ♡</p>
+<ul id="ingredients">
+  <li><label><input type="checkbox"><span>Куриная грудка — 500 г</span></label></li>
+  <li><label><input type="checkbox"><span>Бекон — 200 г</span></label></li>
+  <li><label><input type="checkbox"><span>Майонез — 50 г</span></label></li>
+  <li><label><input type="checkbox"><span>Укроп — 30 г</span></label></li>
+  <li><label><input type="checkbox"><span>Сыр — 50 г</span></label></li>
+  <li><label><input type="checkbox"><span>Соль — по вкусу</span></label></li>
+  <li><label><input type="checkbox"><span>Перец — по вкусу</span></label></li>
+  <li><label><input type="checkbox"><span>Сушёный чеснок — по вкусу</span></label></li>
+</ul>
+<div class="tip">♡ Маленький совет: тщательно смазывай соусом бешамель всю поверхность формы, особенно углы, чтобы листы лазаньи хорошо приготовились по краям и не подгорели.</div>
+</section>
+<section class="panel">
+<h2>Приготовление</h2>
+
+<div class="step">
+  <div class="number">1</div>
+  <div>
+    <h3>Приготовить начинку</h3>
+    <p>Натереть сыр на мелкой тёрке, измельчить укроп. Смешать сыр, укроп, майонез и сушёный чеснок до однородности.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="number">2</div>
+  <div>
+    <h3>Подготовить курицу</h3>
+    <p>Куриную грудку нарезать на тонкие пласты и аккуратно отбить. Приправить солью и перцем по вкусу.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="number">3</div>
+  <div>
+    <h3>Сформировать рулетики</h3>
+    <p>Каждый кусочек курицы смазать приготовленной начинкой и плотно свернуть в рулетик.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="number">4</div>
+  <div>
+    <h3>Обернуть беконом</h3>
+    <p>Обернуть каждый куриный рулетик полосками бекона и выложить в форму для запекания.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="number">5</div>
+  <div>
+    <h3>Запечь до золотистой корочки</h3>
+    <p>Поставить рулетики в предварительно разогретую до 180 °C духовку примерно на 40 минут. Через 20 минут перевернуть рулетики и смазать оставшейся начинкой. Готовить до золотистой корочки и полной готовности курицы.</p>
+  </div>
+</div>
+
+<div class="tip">♡ Маленький совет: каждые 20 минут переворачивай рулетики и смазывай их оставшейся начинкой — так они получатся сочными, а бекон равномерно подрумянится.</div>
+  <div class="number">6</div>
+  <div>
+    <h3>Подавать с любовью ♡</h3>
+    <p>Достать готовые рулетики из духовки, дать им немного отдохнуть и подавать горячими с любимым гарниром.</p>
+  </div>
+</div>
+
+</div>
+</section>
+</div>
+</main>
+<footer>С любовью на тарелке ♡<p>Каждое блюдо — маленькое признание в любви.</p></footer>
+<script>
+const favorite=document.getElementById('favorite');
+const key='love-on-a-plate-chicken-rolls';
+function updateFavorite(){const saved=localStorage.getItem(key)==='true';favorite.classList.toggle('active',saved);favorite.setAttribute('aria-pressed',String(saved));favorite.textContent=saved?'♥ В избранном':'♡ В избранное'}
+favorite.addEventListener('click',()=>{localStorage.setItem(key,String(localStorage.getItem(key)!=='true'));updateFavorite()});
+updateFavorite();
+const boxes=[...document.querySelectorAll('#ingredients input')];
+const checkedKey=key+'-ingredients';
+let checked=[];
+try{checked=JSON.parse(localStorage.getItem(checkedKey)||'[]')}catch(e){}
+boxes.forEach((box,i)=>{box.checked=checked.includes(i);box.addEventListener('change',()=>{localStorage.setItem(checkedKey,JSON.stringify(boxes.flatMap((b,j)=>b.checked?[j]:[])))})});
+</script>
+</body>
+</html>
