@@ -144,12 +144,95 @@ footer{text-align:center;padding:45px 20px;background:#fff5f8;margin-top:60px}
 </div>
 </main>
 <footer>С любовью на тарелке ♡<p>Каждое блюдо — маленькое признание в любви.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const favorite=document.getElementById('favorite');
-const key='love-on-a-plate-potato-nests';
-function updateFavorite(){const saved=localStorage.getItem(key)==='true';favorite.classList.toggle('active',saved);favorite.setAttribute('aria-pressed',String(saved));favorite.textContent=saved?'♥ В избранном':'♡ В избранное'}
-favorite.addEventListener('click',()=>{localStorage.setItem(key,String(localStorage.getItem(key)!=='true'));updateFavorite()});
+
+const favorite = document.getElementById("favorite");
+const key = "love-on-a-plate-potato-nests";
+
+const SUPABASE_URL = "https://mmzreariyjilexkymuqem.supabase.co";
+const SUPABASE_KEY = "sb_publishable_UMOLUGp5wv5IxaneM5ypzQ_yYAQKw9R";
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const recipeId = "potato-nests";
+
+async function updateFavorite() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    favorite.textContent = "♡ Войти, чтобы сохранить";
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("favorites")
+    .select("*")
+    .eq("user_id", user.id)
+    .eq("recipe_id", recipeId);
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  const saved = data.length > 0;
+
+  favorite.classList.toggle("active", saved);
+  favorite.setAttribute("aria-pressed", String(saved));
+  favorite.textContent = saved
+    ? "♥ В избранном"
+    : "♡ В избранное";
+}
+
+favorite.addEventListener("click", async () => {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("favorites")
+    .select("*")
+    .eq("user_id", user.id)
+    .eq("recipe_id", recipeId);
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  let result;
+
+  if (data.length > 0) {
+    result = await supabaseClient
+      .from("favorites")
+      .delete()
+      .eq("user_id", user.id)
+      .eq("recipe_id", recipeId);
+  } else {
+    result = await supabaseClient
+      .from("favorites")
+      .insert({
+        user_id: user.id,
+        recipe_id: recipeId
+      });
+  }
+
+  if (result.error) {
+    alert(result.error.message);
+    return;
+  }
+
+  await updateFavorite();
+});
+
 updateFavorite();
+
 const boxes=[...document.querySelectorAll('#ingredients input')];
 const checkedKey=key+'-ingredients';
 let checked=[];
