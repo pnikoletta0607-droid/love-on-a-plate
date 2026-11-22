@@ -191,6 +191,33 @@
 
       document.getElementById("user-email").textContent =
         data.user.email || "";
+      
+const userId = data.user.id;
+
+const { data: favorites, error: favoritesError } =
+  await supabaseClient
+    .from("favorites")
+    .select("*")
+    .eq("user_id", userId);
+
+const favoritesList =
+  document.getElementById("favorites-list");
+const favoritesMessage =
+  document.getElementById("favorites-message");
+
+if (favoritesError) {
+  favoritesMessage.textContent =
+    "Не удалось загрузить избранное.";
+} else if (!favorites || favorites.length === 0) {
+  favoritesMessage.textContent =
+    "Ты пока не добавила ни одного рецепта ♡";
+} else {
+  favoritesMessage.style.display = "none";
+
+  favoritesList.textContent =
+    `В избранном рецептов: ${favorites.length} ♡`;
+}
+
     }
 
     document.getElementById("logout")
