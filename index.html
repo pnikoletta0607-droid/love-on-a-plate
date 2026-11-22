@@ -233,6 +233,42 @@ footer {
   .card-image { height: 190px; }
   .weekly { padding: 28px 20px; }
 }
+  header {
+  position: relative;
+}
+
+.account-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+
+  display: inline-block;
+  padding: 12px 22px;
+
+  background: #efd8e1;
+  color: #765562;
+  border: 1px solid #e9cbd6;
+  border-radius: 30px;
+
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+
+  transition: background 0.2s;
+}
+
+.account-button:hover {
+  background: #e8c7d4;
+}
+
+@media (max-width: 600px) {
+  .account-button {
+    top: 12px;
+    right: 12px;
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body>
@@ -245,6 +281,9 @@ footer {
      alt="Розовый атласный бантик"
      style="display:block; width:85px; height:auto; margin:12px auto 8px;"
 </div>
+    <a href="login.html" id="account-link" class="account-button">
+  Войти ♡
+</a>
 </header>
 
 <nav>
@@ -253,7 +292,6 @@ footer {
   <a href="#recipes">Рецепты</a>
   <a href="#weekly">Меню на неделю</a>
   <a href="#about">О проекте</a>
-  <a href="login.html" id="account-link">Войти ♡</a>
 </nav>
 
 <main>
