@@ -425,5 +425,28 @@ footer {
   );
 </script>
 
+<script>
+  async function updateAccountLink() {
+    const link = document.getElementById("account-link");
+    if (!link) return;
+
+    const { data, error } = await supabaseClient.auth.getUser();
+
+    if (!error && data.user) {
+      link.textContent = "Моя кухня ♡";
+      link.href = "account.html";
+    } else {
+      link.textContent = "Войти ♡";
+      link.href = "login.html";
+    }
+  }
+
+  updateAccountLink();
+
+  supabaseClient.auth.onAuthStateChange(() => {
+    updateAccountLink();
+  });
+</script>
+
 </body>
 </html>
