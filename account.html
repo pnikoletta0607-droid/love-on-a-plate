@@ -207,7 +207,8 @@ const favoritesMessage =
 
 if (favoritesError) {
   favoritesMessage.textContent =
-    "Не удалось загрузить избранное.";
+    "Ошибка: " + favoritesError.message;
+  console.error("Ошибка избранного:", favoritesError);
 } else if (!favorites || favorites.length === 0) {
   favoritesMessage.textContent =
     "Ты пока не добавила ни одного рецепта ♡";
